@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
 
     public int CurrentLevel= 0;
 
-    public List<Level> Levels;
+    public List<string> Levels;
     // Use this for initialization
     public void Awake()
     {
@@ -24,10 +24,21 @@ public class GameController : MonoBehaviour {
             FindObjectsOfType<GameController>()[0].Start();
         }
 
+        //foreach (var scene in SceneManager.GetAllScenes())
+        //{
+        //    if (scene.name != SceneManager.GetActiveScene().name)
+        //        SceneManager.UnloadSceneAsync(scene);
+
+            
         //}
+        //}
+     
     }
 
     public void Start () {
+        //if (SceneManager.sceneCount > 1)
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         _levelResources = FindObjectOfType<LevelResources>();
 
         
@@ -44,7 +55,7 @@ public class GameController : MonoBehaviour {
         }
         //else
         //{
-        InitLevel(CurrentLevel);
+        StartCoroutine(InitLevel(CurrentLevel));
     }
     
 
@@ -80,18 +91,24 @@ public class GameController : MonoBehaviour {
         {
             PlayerDied.Invoke();
         }
-        Destroy(_levelResources.Level.gameObject);
+        //Destroy(_levelResources.Level.gameObject);
 
-        InitLevel(CurrentLevel);
+        _levelResources.Player.GetComponent<Rigidbody>().position = (_levelResources.Level.Spawn.GetComponent<Transform>().position);
         _levelResources.Player.Alive = true;
     }
 
-    public void InitLevel(int level)
+    IEnumerator InitLevel(int level)
     {
-
-        _levelResources.Level = Instantiate<Level>(Levels[level]);
+        Time.timeScale = 0;
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Levels[level], LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        _levelResources.Level = FindObjectOfType<Level>();
+        //_levelResources.Level = Instantiate<Level>(Levels[level]);
         _levelResources.Player.GetComponent<Rigidbody>().position= (_levelResources.Level.Spawn.GetComponent<Transform>().position);
-       
+        Time.timeScale = 1;
     }
     //// Update is called once per frame
     //void Update () {
