@@ -36,8 +36,7 @@ public class GameController : MonoBehaviour {
     }
 
     public void Start () {
-        //if (SceneManager.sceneCount > 1)
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
 
         _levelResources = FindObjectOfType<LevelResources>();
 
@@ -46,15 +45,16 @@ public class GameController : MonoBehaviour {
         _levelResources.Player.LevelComplete.AddListener(LevelComplete);
 
 
-        // if (Level != null && Level.gameObject.activeInHierarchy)// once we delete the first level, this will load the level. Otherwise we play the level we are working on 
+
         if (_levelResources.Level != null)
         {
-            //Levels[0] = Instantiate<Level>(Level);
+
 
             Destroy(_levelResources.Level.gameObject);
         }
-        //else
-        //{
+
+
+        Time.timeScale = 0;
         StartCoroutine(InitLevel(CurrentLevel));
     }
     
@@ -70,18 +70,7 @@ public class GameController : MonoBehaviour {
             CurrentLevel = 0;
         //StartCoroutine(LevelTransition());
     }
-    //IEnumerator LevelTransition()
-    //{
 
-    //    //_levelResources.CompleteLevelUI.gameObject.SetActive(true);
-
-    //    yield return new WaitForSeconds(2);
-
-    //    //Destroy(Level.gameObject); 
-    //    //InitLevel(CurrentLevel);
-      
-        
-    //}
 
 
 
@@ -99,7 +88,7 @@ public class GameController : MonoBehaviour {
 
     IEnumerator InitLevel(int level)
     {
-        Time.timeScale = 0;
+        ;
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Levels[level], LoadSceneMode.Additive);
         while (!asyncLoad.isDone)
         {
