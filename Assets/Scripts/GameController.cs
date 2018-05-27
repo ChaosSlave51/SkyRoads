@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,7 @@ public class GameController : MonoBehaviour {
     public int CurrentLevel= 0;
 
     public List<string> Levels;
+    public AudioMixer Mixer;
     // Use this for initialization
     public void Awake()
     {
@@ -23,28 +25,19 @@ public class GameController : MonoBehaviour {
             
             FindObjectsOfType<GameController>()[0].Start();
         }
-
-        //foreach (var scene in SceneManager.GetAllScenes())
-        //{
-        //    if (scene.name != SceneManager.GetActiveScene().name)
-        //        SceneManager.UnloadSceneAsync(scene);
-
-            
-        //}
-        //}
-     
+    
     }
 
     public void Start () {
+        if(PlayerPrefs.HasKey("music"))
+            Mixer.SetFloat("music", PlayerPrefs.GetFloat("music"));
 
+        if (PlayerPrefs.HasKey("effects"))
+            Mixer.SetFloat("effects", PlayerPrefs.GetFloat("effects"));
 
-        _levelResources = FindObjectOfType<LevelResources>();
-
-        
+        _levelResources = FindObjectOfType<LevelResources>();       
         _levelResources.Player.Death.AddListener(PlayerDeath);
         _levelResources.Player.LevelComplete.AddListener(LevelComplete);
-
-
 
         if (_levelResources.Level != null)
         {
@@ -52,7 +45,6 @@ public class GameController : MonoBehaviour {
 
             Destroy(_levelResources.Level.gameObject);
         }
-
 
         Time.timeScale = 0;
         StartCoroutine(InitLevel(CurrentLevel));
@@ -70,8 +62,6 @@ public class GameController : MonoBehaviour {
             CurrentLevel = 0;
         //StartCoroutine(LevelTransition());
     }
-
-
 
 
     private void PlayerDeath()

@@ -967,6 +967,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114557545336441734, guid: 21ad92011ae53ab479fae9c36d18bacb,
+        type: 2}
+      propertyPath: Mixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 4de2c6efc4e050540ba477003e1cfb8d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21ad92011ae53ab479fae9c36d18bacb, type: 2}
   m_IsPrefabParent: 0

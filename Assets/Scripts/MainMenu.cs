@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,8 +11,12 @@ public class MainMenu : MonoBehaviour
 
     public void ResumeClick()
     {
-
+        var scene=SceneManager.GetSceneByName("Menu");
+               
+        SceneManager.UnloadScene(scene);
+        Time.timeScale = 1;
     }
+
 
     public void OptionsClick()
     {

@@ -25,6 +25,7 @@ public class Options : MonoBehaviour {
 
     private void Start() //todo set current resolution
     {
+     
 
         PrepQuality();
         PrepResoltion();
@@ -104,10 +105,12 @@ public class Options : MonoBehaviour {
     public void MusicChange(float value)
     {
         Mixer.SetFloat("music", value);
+        PlayerPrefs.SetFloat("music", value);
     }
     public void EffectsChange(float value)
     {
         Mixer.SetFloat("effects", value);
+        PlayerPrefs.SetFloat("effects", value);
     }
 
     public void QualityChange(int quality)//todo set current resolution
