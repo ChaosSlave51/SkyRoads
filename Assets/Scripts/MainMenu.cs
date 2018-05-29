@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
     {
         var scene=SceneManager.GetSceneByName("Menu");
                
-        SceneManager.UnloadScene(scene);
+        SceneManager.UnloadSceneAsync(scene); //maybe sync?
         Time.timeScale = 1;
     }
 

@@ -9,12 +9,12 @@ public class Player : MonoBehaviour
     public UnityEvent LevelComplete;
     [SerializeField]
     private bool _alive = true;
-    private Rigidbody _rigidBody;
+    //private Rigidbody _rigidBody;
 
-    private void Start()
-    {
-        _rigidBody = GetComponent<Rigidbody>();
-    }
+    //private void Start()
+    //{
+    //    _rigidBody = GetComponent<Rigidbody>();
+    //}
 
     public bool Alive
     {

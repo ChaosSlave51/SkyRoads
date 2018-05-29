@@ -17,8 +17,8 @@ public class PlayerShip : MonoBehaviour
     public float DeathSpeed = 3;
 
     public float AccellerationDecay = 0.1f;
-    [SerializeField]
-    private float _forwardForce;
+    //[SerializeField]
+    //private float _forwardForce;
     [SerializeField]
     private float _sideForce;
     [SerializeField]
@@ -41,7 +41,7 @@ public class PlayerShip : MonoBehaviour
 
         _rigidBody.AddForce(new Vector3(_sideForce, _downForce, Accelleration*Throttle));
 
-        _forwardForce = 0;
+        //_forwardForce = 0;
         _sideForce = 0;
         _downForce = 0;
 

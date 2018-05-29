@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour {
     }
 
     public void Start () {
+        Debug.Log("log test");
+
         if(PlayerPrefs.HasKey("music"))
             Mixer.SetFloat("music", PlayerPrefs.GetFloat("music"));
 
