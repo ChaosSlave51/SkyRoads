@@ -87,7 +87,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - Color_D027E98: {r: 0.3453985, g: 0.79441375, b: 0.9200531, a: 1}
+    - Color_D027E98: {r: 0.27990815, g: 0.39553326, b: 0.2709477, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SourceColor: {r: 1, g: 0, b: 0, a: 0}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerShip : MonoBehaviour
 {
@@ -28,9 +29,13 @@ public class PlayerShip : MonoBehaviour
     private Rigidbody _rigidBody;
 
     private bool _grounded = true;
+
     // Use this for initialization
 
     Player _player;
+
+   
+
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
@@ -49,6 +54,12 @@ public class PlayerShip : MonoBehaviour
 
         //debug
         _velocity = _rigidBody.velocity;
+
+
+        if (_player.GetHasStarted() && _velocity.magnitude == 0f)
+        {
+            _player.Alive = false;
+        }
     }
     // Update is called once per frame
     
@@ -62,7 +73,11 @@ public class PlayerShip : MonoBehaviour
     }
     public void ThrottleUo()
     {
-        Throttle = Mathf.Clamp01(Throttle + ThrottleStep * Time.deltaTime);       
+        Throttle = Mathf.Clamp01(Throttle + ThrottleStep * Time.deltaTime);
+        if (!_player.GetHasStarted())
+        {
+            _player.SetHasStarted(true);
+        }
     }
     public void ThrottleDown()
     {

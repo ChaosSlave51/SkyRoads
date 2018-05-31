@@ -12,30 +12,40 @@ public class GameController : MonoBehaviour {
     public int CurrentLevel= 0;
 
     public List<string> Levels;
-    public AudioMixer Mixer;
+   
     // Use this for initialization
     public void Awake()
     {
-        DontDestroyOnLoad(this);
+
 
         if (FindObjectsOfType(GetType()).Length > 1)
         {
             Destroy(gameObject);
-                      
+
+
+            foreach (var obj in FindObjectsOfType<GameController>())
+            {
+                if (obj != this)
+                {
+                    obj.Start();
+                    break;
+                }
+            }
             
-            FindObjectsOfType<GameController>()[0].Start();
+
+
+            
+        }
+        else
+        {
+            DontDestroyOnLoad(this);
         }
     
     }
 
     public void Start () {
-        Debug.Log("log test");
 
-        if(PlayerPrefs.HasKey("music"))
-            Mixer.SetFloat("music", PlayerPrefs.GetFloat("music"));
 
-        if (PlayerPrefs.HasKey("effects"))
-            Mixer.SetFloat("effects", PlayerPrefs.GetFloat("effects"));
 
         _levelResources = FindObjectOfType<LevelResources>();       
         _levelResources.Player.Death.AddListener(PlayerDeath);
@@ -76,11 +86,11 @@ public class GameController : MonoBehaviour {
 
         _levelResources.Player.GetComponent<Rigidbody>().position = (_levelResources.Level.Spawn.GetComponent<Transform>().position);
         _levelResources.Player.Alive = true;
+        _levelResources.Player.SetHasStarted(false);
     }
 
     IEnumerator InitLevel(int level)
     {
-        ;
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Levels[level], LoadSceneMode.Additive);
         while (!asyncLoad.isDone)
         {
