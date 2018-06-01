@@ -14,11 +14,20 @@ public class LevelComplete : MonoBehaviour {
     {
 
         YourTIme.text = TimeHelper.FormatSeconds(yourTime);
-     
 
-        BestTime.text = TimeHelper.FormatSeconds(bestTime);  
 
-        BestTimeAchived.gameObject.SetActive(yourTime < bestTime);
+
+        if (bestTime == 0)
+        {
+            BestTime.text = TimeHelper.FormatSeconds(yourTime);
+            BestTimeAchived.gameObject.SetActive(true);
+        }
+        else
+        {
+            BestTime.text = TimeHelper.FormatSeconds(bestTime);
+            BestTimeAchived.gameObject.SetActive(yourTime < bestTime);
+        }
+        
 
     }
 
