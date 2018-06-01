@@ -11,12 +11,17 @@ public class OpeningController : MonoBehaviour {
     public AudioMixer Mixer;
     void Start () {
         _tlc = Ship.GetComponent<TimelineController>();
+        float music;
+        if (StorageeHelper.MusicVolume.TryGetValue(out  music))
+        {
+            Mixer.SetFloat("music", SoundHelper.PercentToDecible(music));
+        }
+        float effects;
+        if (StorageeHelper.EffectsVolume.TryGetValue(out effects))
+        {
+            Mixer.SetFloat("effects", SoundHelper.PercentToDecible(music));
+        }
 
-        if (PlayerPrefs.HasKey("music"))
-            Mixer.SetFloat("music", SoundHelper.PercentToDecible(PlayerPrefs.GetFloat("music")));
-
-        if (PlayerPrefs.HasKey("effects"))
-            Mixer.SetFloat("effects", SoundHelper.PercentToDecible(PlayerPrefs.GetFloat("effects")));
     }
 	
 	// Update is called once per frame
@@ -29,6 +34,5 @@ public class OpeningController : MonoBehaviour {
                 _tlc.PlayableDirector.Play();
             }
         }
-        
     }
 }

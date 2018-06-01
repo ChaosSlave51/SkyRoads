@@ -60,6 +60,8 @@ public class GameController : MonoBehaviour {
 
         Time.timeScale = 0;
         StartCoroutine(InitLevel(CurrentLevel));
+
+        Debug.Log(StorageeHelper.LevelStore.GetLevelTime(CurrentLevel));
     }
     
 
@@ -67,8 +69,17 @@ public class GameController : MonoBehaviour {
 
     private void LevelComplete()
     {
+      
+
         _levelResources.GetComponent<TimelineController>().PlayableDirector.Play();
 
+        var bestLevelTime = StorageeHelper.LevelStore.GetLevelTime(CurrentLevel);
+        var levelTime = _levelResources.Player.GetSecondsRacing();
+        if (bestLevelTime==null || levelTime < bestLevelTime)
+        {
+            StorageeHelper.LevelStore.SetLevelTime(CurrentLevel, levelTime);
+        }
+        _levelResources.LevelComplete.SetupScoreBoard(levelTime, bestLevelTime??0);
         CurrentLevel++;
         if (CurrentLevel >= Levels.Count)
             CurrentLevel = 0;
@@ -99,6 +110,9 @@ public class GameController : MonoBehaviour {
         _levelResources.Level = FindObjectOfType<Level>();
         //_levelResources.Level = Instantiate<Level>(Levels[level]);
         _levelResources.Player.GetComponent<Rigidbody>().position= (_levelResources.Level.Spawn.GetComponent<Transform>().position);
+
+        _levelResources.Hud.BestTime = StorageeHelper.LevelStore.GetLevelTime(CurrentLevel)??0;
+
         Time.timeScale = 1;
     }
     //// Update is called once per frame

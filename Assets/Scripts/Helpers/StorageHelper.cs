@@ -1,29 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 
-//public class StorageeHelper 
-//{
-
-
-//    public static float MusicVolume {
-//        get {
-//            return PlayerPrefs.GetFloat("music");
-//        }
-//        set {
-//            PlayerPrefs.SetFloat("music",value);
-//        }
-//    }
-
-
-//    public static float EffectsVolume
-//    {
-//        get
-//        {
-//            return PlayerPrefs.GetFloat("effects");
-//        }
-//        set
-//        {
-//            PlayerPrefs.SetFloat("effects", value);
-//        }
-//    }
-//}
+public static class StorageeHelper
+{
+    public static FloatStore MusicVolume = new FloatStore("music");
+    public static FloatStore EffectsVolume = new FloatStore("effects");
+    public static LevelStore LevelStore = new LevelStore("level");
+}

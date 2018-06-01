@@ -39,12 +39,12 @@ public class Options : MonoBehaviour {
         float music = 0;
         if (Mixer.GetFloat("music", out music))
         {
-            Music.value =SoundHelper.DecibeToPercent( music);
+            Music.value = SoundHelper.DecibeToPercent(music);
         }
         float effects = 0;
         if (Mixer.GetFloat("effects", out effects))
         {
-            Effects.value = SoundHelper.DecibeToPercent(music);
+            Effects.value = SoundHelper.DecibeToPercent(effects);
         }
     }
 
@@ -105,12 +105,12 @@ public class Options : MonoBehaviour {
     public void MusicChange(float value)
     {
         Mixer.SetFloat("music", SoundHelper.PercentToDecible(value));
-        PlayerPrefs.SetFloat("music", value);
+        StorageeHelper.MusicVolume.Value=value;
     }
     public void EffectsChange(float value)
     {
         Mixer.SetFloat("effects", SoundHelper.PercentToDecible(value));
-        PlayerPrefs.SetFloat("effects", value);
+        StorageeHelper.EffectsVolume.Value = value;
     }
 
     public void QualityChange(int quality)//todo set current resolution

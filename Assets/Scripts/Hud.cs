@@ -18,6 +18,15 @@ public class Hud : MonoBehaviour {
     public float StopWatch;
     public TMP_Text StopWatchDisplay;
 
+    private float _bestTime;
+    public float BestTime {
+        get { return _bestTime; }
+        set { _bestTime = value;
+            
+            BestTimeDisplay.text = TimeHelper.FormatSeconds(value);
+        }
+    }
+    public TMP_Text BestTimeDisplay;
     // Use this for initialization
     void Start () {
 		
@@ -27,8 +36,9 @@ public class Hud : MonoBehaviour {
 	void Update () {
         VelocityDisplay.fillAmount = VelocityPercent;
         ThrottleDisplay.fillAmount = Throttle;
-        var time = TimeSpan.FromSeconds((double)StopWatch);
-        StopWatchDisplay.text =  string.Format("{0:00}:{1:00}:{2:000}", time.Minutes,time.Seconds,time.Milliseconds);
+        
+        StopWatchDisplay.text = TimeHelper.FormatSeconds(StopWatch);
         
     }
 }
+

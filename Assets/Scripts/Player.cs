@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     {
         if(_endTime!=0)
         {
-            return _endTime;
+            return _endTime-_startTime;
         }
 
         if (_startTime == 0)
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
     {
         if (_alive == true)
         {
-            _endTime = _startTime;
+            _endTime = Time.time;
             if (LevelComplete != null)
             {
                 LevelComplete.Invoke();

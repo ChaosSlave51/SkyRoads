@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class LevelResources : MonoBehaviour {
     public Player Player;
     public Level Level;
+    public Hud Hud;
 
+    public LevelComplete LevelComplete;
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
