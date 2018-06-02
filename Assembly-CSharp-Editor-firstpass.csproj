@@ -65,7 +65,6 @@
     <Compile Include="Assets\Plugins\ProCore\ProGrids\Editor\pg_ParameterWindow.cs" />
     <Compile Include="Assets\Plugins\ProCore\ProGrids\Editor\pg_Preferences.cs" />
     <Compile Include="Assets\Plugins\ProCore\ProGrids\Editor\pg_ToggleContent.cs" />
-    <None Include="Assets\Plugins\EffectExamples\Editor\PackageManagerAssembly\PackageImportList.txt" />
     <Reference Include="com.unity.render-pipelines.core.Editor">
       <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
     </Reference>
@@ -362,9 +361,6 @@
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
-    </Reference>
-    <Reference Include="PackageManagerAssembly">
-      <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Assets/Plugins/EffectExamples/Editor/PackageManagerAssembly/PackageManagerAssembly.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>E:/Programs/Programing/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

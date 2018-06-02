@@ -59,13 +59,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Animations\Behaviors\Player\BasePlayerState.cs" />
-    <Compile Include="Assets\Animations\Behaviors\Player\LevelComplete.cs" />
+    <Compile Include="Assets\Animations\Behaviors\Player\LevelCompleted.cs" />
     <Compile Include="Assets\Animations\Behaviors\Player\PlayerDead.cs" />
     <Compile Include="Assets\Animations\Behaviors\Player\PlayerNormal.cs" />
     <Compile Include="Assets\Animations\Behaviors\Player\PreStart.cs" />
-    <Compile Include="Assets\DemoShip.cs" />
-    <Compile Include="Assets\LevelComplete.cs" />
     <Compile Include="Assets\Scripts\AudioObserver.cs" />
+    <Compile Include="Assets\Scripts\DemoShip.cs" />
     <Compile Include="Assets\Scripts\Follow.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Goal.cs" />
@@ -78,6 +77,7 @@
     <Compile Include="Assets\Scripts\Hud.cs" />
     <Compile Include="Assets\Scripts\HudObserver.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
+    <Compile Include="Assets\Scripts\LevelComplete.cs" />
     <Compile Include="Assets\Scripts\LevelResources.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\NoiseOnHit.cs" />

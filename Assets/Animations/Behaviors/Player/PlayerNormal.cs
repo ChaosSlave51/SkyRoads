@@ -7,7 +7,7 @@ public class PlayerNormal : BasePlayerState
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     Rigidbody _rigidBody;
-
+    float minVelocity;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
@@ -28,9 +28,9 @@ public class PlayerNormal : BasePlayerState
 
         // rb.AddForce(new Vector3(0, 0, ForwardForce * Time.deltaTime));
 
+        minVelocity = Mathf.Min(_rigidBody.velocity.z, minVelocity);
 
-
-        if (_rigidBody.velocity.z < 0f)
+        if (minVelocity>0 && _rigidBody.velocity.z <= 0f)
         {
             animator.ResetTrigger("Death");
             animator.SetTrigger("Death");
