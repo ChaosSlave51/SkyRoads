@@ -58,6 +58,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Animations\Behaviors\Player\BasePlayerState.cs" />
+    <Compile Include="Assets\Animations\Behaviors\Player\LevelComplete.cs" />
+    <Compile Include="Assets\Animations\Behaviors\Player\PlayerDead.cs" />
+    <Compile Include="Assets\Animations\Behaviors\Player\PlayerNormal.cs" />
+    <Compile Include="Assets\Animations\Behaviors\Player\PreStart.cs" />
     <Compile Include="Assets\DemoShip.cs" />
     <Compile Include="Assets\LevelComplete.cs" />
     <Compile Include="Assets\Scripts\AudioObserver.cs" />

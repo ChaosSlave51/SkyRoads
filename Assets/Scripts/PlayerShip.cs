@@ -9,7 +9,7 @@ public class PlayerShip : MonoBehaviour
     public float Strafe = 5000;
     public float JumpForce = 5000;
     public float VelocityMax;
-
+    public Animator Animator;
 
     [Range(0, 1)]
     public float Throttle;
@@ -20,10 +20,10 @@ public class PlayerShip : MonoBehaviour
     public float AccellerationDecay = 0.1f;
     //[SerializeField]
     //private float _forwardForce;
-    [SerializeField]
-    private float _sideForce;
-    [SerializeField]
-    private float _downForce;
+    
+    public float SideForce;
+    
+    public float DownForce;
     [SerializeField]
     private Vector3 _velocity;
     private Rigidbody _rigidBody;
@@ -40,44 +40,28 @@ public class PlayerShip : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody>();
         _player = GetComponent<Player>();
+        Animator = GetComponent<Animator>();
     }
     void FixedUpdate()
     {
 
-        _rigidBody.AddForce(new Vector3(_sideForce, _downForce, Accelleration*Throttle));
 
-        //_forwardForce = 0;
-        _sideForce = 0;
-        _downForce = 0;
-
-        // rb.AddForce(new Vector3(0, 0, ForwardForce * Time.deltaTime));
-
-        //debug
-        _velocity = _rigidBody.velocity;
-
-
-        if (_player.GetHasStarted() && _velocity.magnitude == 0f)
-        {
-            _player.Alive = false;
-        }
     }
     // Update is called once per frame
     
     public void Left()
     {
-        _sideForce += Strafe * Time.deltaTime;
+        SideForce += Strafe * Time.deltaTime;
     }
     public void Right()
     {
-        _sideForce -= Strafe * Time.deltaTime;
+        SideForce -= Strafe * Time.deltaTime;
     }
     public void ThrottleUo()
     {
         Throttle = Mathf.Clamp01(Throttle + ThrottleStep * Time.deltaTime);
-        if (!_player.GetHasStarted())
-        {
-            _player.SetHasStarted(true);
-        }
+        Animator.ResetTrigger("Ready");
+        Animator.SetTrigger("Ready");
     }
     public void ThrottleDown()
     {
@@ -85,17 +69,16 @@ public class PlayerShip : MonoBehaviour
     }
     public void Jump()
     {
+
         if (_grounded)
         {
-            _downForce += JumpForce * Time.deltaTime;
+            DownForce += JumpForce * Time.deltaTime;
             _grounded = false;
         }
     }
 
     public void Destory() {
-        _rigidBody.velocity = Vector3.zero;
-        Throttle = 0;
-        _player.Alive = false;
+        _player.Kill();
     }
 
 
@@ -104,16 +87,8 @@ public class PlayerShip : MonoBehaviour
 
     public void Warp()
     {
-        _player.CompleteLevel();
-        foreach (var ps in GetComponentsInChildren<ParticleSystem>())
-        {
-            ps.Play();
-        }
-
-
-        _rigidBody.useGravity = false;
-        _rigidBody.velocity = new Vector3(0, 0, VelocityMax);
-        Throttle = 1;
+        Animator.ResetTrigger("LevelCompleted");
+        Animator.SetTrigger("LevelCompleted");
     }
 
     

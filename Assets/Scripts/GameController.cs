@@ -48,7 +48,6 @@ public class GameController : MonoBehaviour {
 
 
         _levelResources = FindObjectOfType<LevelResources>();       
-        _levelResources.Player.Death.AddListener(PlayerDeath);
         _levelResources.Player.LevelComplete.AddListener(LevelComplete);
 
         if (_levelResources.Level != null)
@@ -65,7 +64,7 @@ public class GameController : MonoBehaviour {
     }
     
 
-    public UnityEvent PlayerDied;
+
 
     private void LevelComplete()
     {
@@ -87,18 +86,6 @@ public class GameController : MonoBehaviour {
     }
 
 
-    private void PlayerDeath()
-    {
-        if (PlayerDied != null)
-        {
-            PlayerDied.Invoke();
-        }
-        //Destroy(_levelResources.Level.gameObject);
-
-        _levelResources.Player.GetComponent<Rigidbody>().position = (_levelResources.Level.Spawn.GetComponent<Transform>().position);
-        _levelResources.Player.Alive = true;
-        _levelResources.Player.SetHasStarted(false);
-    }
 
     IEnumerator InitLevel(int level)
     {

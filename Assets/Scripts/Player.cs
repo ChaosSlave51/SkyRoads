@@ -6,95 +6,59 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
-    public UnityEvent Death;
-    public UnityEvent LevelComplete;
-    public UnityEvent Started;
-    
-    private float _startTime=0;
-    private float _endTime = 0;
-    private bool hasStarted;
 
-    public bool GetHasStarted()
+    public UnityEvent LevelComplete;
+    public Animator Animator;
+    
+    public float StartTime=0;
+    public float EndTime = 0;
+
+
+
+    private void Start()
     {
-        return hasStarted;
+        Animator = GetComponent<Animator>();
     }
+
 
     public float GetSecondsRacing()
     {
-        if(_endTime!=0)
+        if(EndTime!=0)
         {
-            return _endTime-_startTime;
+            return EndTime-StartTime;
         }
 
-        if (_startTime == 0)
+        if (StartTime == 0)
         {
             return 0;
         }
         else
         {
-            return Time.time- _startTime;
+            return Time.time- StartTime;
         }
     }
 
-    public void SetHasStarted(bool value)
+    public void StartLevel()
     {
-        hasStarted = value;
-        if (hasStarted == true)
-        {
-            if (Started != null)
-            {
-                Started.Invoke();
-            }
-            _startTime = Time.time;
-        }
-        else
-        {
-            _startTime = 0;
-        }
+
     }
 
-    [SerializeField]
-    private bool _alive = true;
-    //private Rigidbody _rigidBody;
-
-    //private void Start()
-    //{
-    //    _rigidBody = GetComponent<Rigidbody>();
-    //}
-
-    public bool Alive
+    public void Kill()
     {
-        get
-        {
-            return _alive;
-        }
-        set
-        {
-            _alive = value;
-            //#if UNITY_EDITOR
-            //            alive = _alive;
-            //#endif
+        Animator.ResetTrigger("Death");
+        Animator.SetTrigger("Death");
 
-            if (_alive == false)
-            {
-                if (Death != null)
-                {
-                    Death.Invoke();
-                }
-            }
-        }
     }
 
     public void CompleteLevel()
     {
-        if (_alive == true)
-        {
-            _endTime = Time.time;
+
+            EndTime = Time.time;
             if (LevelComplete != null)
             {
                 LevelComplete.Invoke();
             }
-        }
+
     }
 
 }

@@ -58,6 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Plugins\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+    <Compile Include="Assets\Plugins\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+    <Compile Include="Assets\Plugins\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\Plugins\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\Plugins\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+    <Compile Include="Assets\Plugins\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\Plugins\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Plugins\ProCore\ProGrids\Classes\pg_Constant.cs" />
     <Compile Include="Assets\Plugins\ProCore\ProGrids\Classes\pg_Enum.cs" />
     <Compile Include="Assets\Plugins\ProCore\ProGrids\Classes\pg_IconUtility.cs" />
@@ -102,6 +109,7 @@
     <None Include="Assets\Plugins\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+    <None Include="Assets\Plugins\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
