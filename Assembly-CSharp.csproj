@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Goal.cs" />
     <Compile Include="Assets\Scripts\Helpers\FloatStore.cs" />
     <Compile Include="Assets\Scripts\Helpers\LevelStore.cs" />
+    <Compile Include="Assets\Scripts\Helpers\MathHelper.cs" />
     <Compile Include="Assets\Scripts\Helpers\SoundHelper.cs" />
     <Compile Include="Assets\Scripts\Helpers\StorageHelper.cs" />
     <Compile Include="Assets\Scripts\Helpers\StringStore.cs" />

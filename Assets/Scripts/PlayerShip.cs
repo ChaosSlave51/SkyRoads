@@ -5,6 +5,10 @@ using UnityEngine.Events;
 
 public class PlayerShip : MonoBehaviour
 {
+    public List<ParticleSystem> EngineThrusts;
+    public List<ParticleSystem> LeftThrusts;
+    public List<ParticleSystem> RightThrusts;
+
     public float Accelleration = 5000;
     public float Strafe = 5000;
     public float JumpForce = 5000;
@@ -44,7 +48,6 @@ public class PlayerShip : MonoBehaviour
     }
     void FixedUpdate()
     {
-
 
     }
     // Update is called once per frame
