@@ -9,10 +9,24 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour {
     LevelResources _levelResources;
 
-    public int CurrentLevel= 0;
+    public static int CurrentLevel= 0;
 
     public List<string> Levels;
-   
+
+    //public static GameController GetInstance()
+    //{
+    //    var ret = FindObjectOfType<GameController>();
+    //    if (ret != null)
+    //    {
+    //        return ret;
+    //    }
+    //    else
+    //    {
+    //        ret = Instantiate<GameController>(;
+    //    }
+
+    //}
+
     // Use this for initialization
     public void Awake()
     {
@@ -25,7 +39,7 @@ public class GameController : MonoBehaviour {
 
             foreach (var obj in FindObjectsOfType<GameController>())
             {
-                if (obj != this)
+                if (obj != this)//run start on the main game object. This is important if it's being restarted. If this is the first time it will run on it's own
                 {
                     obj.Start();
                     break;
@@ -44,10 +58,18 @@ public class GameController : MonoBehaviour {
     }
 
     public void Start () {
+        
+        _levelResources = FindObjectOfType<LevelResources>();
+
+        if (Levels.Count == 0)//levels have not been loaded yet
+        {
+            foreach (var level in _levelResources.Levels.Levels)
+            {
+                Levels.Add(level.LevelScenePath);
+            }
+        }
 
 
-
-        _levelResources = FindObjectOfType<LevelResources>();       
         _levelResources.Player.LevelComplete.AddListener(LevelComplete);
 
         if (_levelResources.Level != null)

@@ -8,6 +8,8 @@ public class LevelResources : MonoBehaviour {
     public Level Level;
     public Hud Hud;
 
+    public LevelList Levels;
+
     public LevelComplete LevelComplete;
     public void NextLevel()
     {

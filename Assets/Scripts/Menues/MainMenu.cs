@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 
 
     public  GameObject Options;
+    public GameObject LevelSelect;
 
     public void ResumeClick()
     {
@@ -26,4 +27,11 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void LevelSelectClick()
+    {
+
+        LevelSelect.SetActive(true);
+        gameObject.SetActive(false);
+
+    }
 }
