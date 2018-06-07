@@ -29,9 +29,7 @@ public class MainMenu : MonoBehaviour
 
     public void LevelSelectClick()
     {
-
         LevelSelect.SetActive(true);
         gameObject.SetActive(false);
-
     }
 }

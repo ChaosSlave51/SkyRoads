@@ -8,12 +8,13 @@ public class LevelSelectMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         var templateResource= Resources.Load("Level Template") as GameObject;
-        int id = 0;
-        foreach (var level in Levels.Levels)
+        var completedLevels = StorageeHelper.LevelStore.GetCompletedLevelsCount();
+        for (int i = 0; i < completedLevels; i++)
         {
+            LevelModel level = Levels.Levels[i];
             var template = Instantiate(templateResource,Content.transform);
             var levelTemplate = template.GetComponent<LevelTemplate>();
-            levelTemplate.Init(level,id++);
+            levelTemplate.Init(level,i);
 
 
         }
