@@ -127,6 +127,12 @@
     <Reference Include="com.unity.render-pipelines.core.IncludePaths">
       <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+      <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids">
+      <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Programs/Programing/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>

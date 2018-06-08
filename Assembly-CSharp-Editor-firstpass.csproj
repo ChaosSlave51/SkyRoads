@@ -59,12 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\GameObjectReplacer\Editor\GameObjectReplacer.cs" />
-    <Compile Include="Assets\Plugins\ProCore\ProGrids\About\Editor\pg_AboutWindow.cs" />
-    <Compile Include="Assets\Plugins\ProCore\ProGrids\Editor\pg_Editor.cs" />
-    <Compile Include="Assets\Plugins\ProCore\ProGrids\Editor\pg_GridRenderer.cs" />
-    <Compile Include="Assets\Plugins\ProCore\ProGrids\Editor\pg_ParameterWindow.cs" />
-    <Compile Include="Assets\Plugins\ProCore\ProGrids\Editor\pg_Preferences.cs" />
-    <Compile Include="Assets\Plugins\ProCore\ProGrids\Editor\pg_ToggleContent.cs" />
     <Reference Include="com.unity.render-pipelines.core.Editor">
       <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Library/ScriptAssemblies/com.unity.render-pipelines.core.Editor.dll</HintPath>
     </Reference>
@@ -94,6 +88,12 @@
     </Reference>
     <Reference Include="com.unity.render-pipelines.core.IncludePaths">
       <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Library/ScriptAssemblies/com.unity.render-pipelines.core.IncludePaths.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+      <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids">
+      <HintPath>E:/Programs/Programing/UnityGames/SkyRoadsLRP/Sky Roads LRP/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Programs/Programing/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -354,7 +354,7 @@
       <HintPath>C:/Users/Andrey/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.purchasing@2.0.1/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>C:/Users/Andrey/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.render-pipelines.core@1.1.2-preview/CoreRP/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
+      <HintPath>C:/Users/Andrey/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.render-pipelines.core@1.1.10-preview/CoreRP/Editor/ShaderGenerator/ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/Andrey/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>

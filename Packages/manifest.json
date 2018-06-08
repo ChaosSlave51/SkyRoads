@@ -1,5 +1,6 @@
 {
-    "dependencies": {
-        "com.unity.render-pipelines.lightweight": "1.1.2-preview"
-    }
+  "dependencies": {
+    "com.unity.render-pipelines.lightweight": "1.1.10-preview",
+    "com.unity.progrids": "3.0.2-preview"
+  }
 }
